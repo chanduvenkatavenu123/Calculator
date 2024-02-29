@@ -1,0 +1,90 @@
+<!--Example on JS-->
+<!DOCTYPE html>
+<html language="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,Initial-scale=1.0">
+  <title>JS Ex92</title>
+  <link rel="icon" href="c:/users/venka/Documents/html/images/logo.webp">
+  <style>
+   .calculator
+   {
+    background-color:#ffcccc;
+    width:400px;
+	height:400px;
+	padding:20px 25px;
+	margin:auto;
+	border-color:#cc0066;
+	border-radius:10px;
+   }
+   .display{
+    width:200px;
+	height:30px;
+    background-color:#ffffff;
+	text-align:right;
+	font-size:30px;
+	border-radius:10px;
+	}
+   .row{
+    display:flex;
+   }
+   button{
+    width:50px;
+	height:50px;
+	border-radius:10px;
+	font-size:25px;
+	color:#ffcc66;
+   }
+  </style>
+ </head>
+ <body>
+  <h3>Demo on Calculator Application</h3>
+  <div class="calculator">
+   <input type="text" class="display"/>
+   <div class="row">
+    <button value="7">7</button>
+	<button value="8">8</button>
+	<button value="9">9</button>
+	<button value="*" class="operator">*</button>
+   </div>
+   <div class="row">
+    <button value="4">4</button>
+	<button value="5">5</button>
+	<button value="6">6</button>
+	<button value="-" class="operator">-</button>
+   </div>
+   <div class="row">
+    <button value="1">1</button>
+	<button value="2">2</button>
+	<button value="3">3</button>
+	<button value="+" class="operator">+</button>
+   </div>
+   <div>
+    <button value="AC">AC</button>
+	<button value="0">0</button>
+	<button value="/">/</button>
+	<button value="=">=</button>
+   </div>
+  </div>
+  <script>
+	const buttons = document.querySelectorAll('button');
+	const textbox = document.querySelector('.display');
+
+	buttons.forEach(function(bt) {
+    bt.addEventListener('click', calculate);
+	});
+       function calculate(bt) {
+		const clickedBtvalue = bt.target.value;
+		if (clickedBtvalue === "AC") {
+         textbox.value = "";
+		}else if (clickedBtvalue === "=") {
+			if (textbox.value !== "=") {
+             textbox.value = eval(textbox.value);
+        } 
+	       }else{
+			 textbox.value = textbox.value + clickedBtvalue;
+           }
+	}
+  </script>
+ </body>
+</html>
